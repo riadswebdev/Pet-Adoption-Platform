@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { PetCard } from "@/components/PetCard";
+import PetCard from "@/components/PetCard";
 import { apiClient } from "@/app/lib/api-client";
 import { type Pet } from "@/app/types/pet";
 import {

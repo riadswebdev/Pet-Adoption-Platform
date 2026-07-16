@@ -19,7 +19,7 @@ export interface PetCardProps {
   shortDescription: string;
 }
 
-export function PetCard({
+const PetCard = ({
   _id,
   petName,
   breed,
@@ -31,7 +31,7 @@ export function PetCard({
   adoptionFee,
   images,
   shortDescription,
-}: PetCardProps) {
+}: PetCardProps) => {
   const safeImageSrc = (() => {
     const fallbackImage =
       "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600";
@@ -120,4 +120,5 @@ export function PetCard({
       </div>
     </motion.article>
   );
-}
+};
+export default PetCard;

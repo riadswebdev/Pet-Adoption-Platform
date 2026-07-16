@@ -16,10 +16,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Chip } from "@heroui/react";
-import { PetCard } from "@/components/PetCard";
+
+import PetCard from "@/components/PetCard";
+import Image from "next/image";
 import { apiClient } from "@/app/lib/api-client";
 import type { Pet } from "@/app/types/pet";
-import Image from "next/image";
 
 export default function PetDetails() {
   const params = useParams<{ id: string }>();
