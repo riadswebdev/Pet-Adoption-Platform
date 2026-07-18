@@ -7,7 +7,7 @@ export async function GET(request: Request) {
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL || "https://pet-adoption-platform-drab.vercel.app"}/api/pets?${url.searchParams.toString()}`,
+      `${process.env.NEXT_PUBLIC_API_URL || "https://pet-adoption-server-eight.vercel.app"}/api/pets?${url.searchParams.toString()}`,
     );
     const data = await response.json();
 

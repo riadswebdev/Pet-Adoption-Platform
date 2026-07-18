@@ -1,6 +1,6 @@
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://pet-adoption-platform-drab.vercel.app";
+  "https://pet-adoption-server-eight.vercel.app";
 
 interface ApiClientOptions extends RequestInit {
   timeoutMs?: number;
