@@ -16,6 +16,7 @@ import {
 import { Avatar, Button, Dropdown } from "@heroui/react";
 import { authClient, useSession } from "@/lib/auth-client";
 
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -23,9 +24,6 @@ export function Navbar() {
   const router = useRouter();
   const { data: session } = useSession();
   const { theme, setTheme } = useTheme();
-
-
-
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));

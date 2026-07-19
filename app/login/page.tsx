@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { Eye, EyeOff, LogIn } from "lucide-react";
 import { Button } from "@heroui/react";
-import { authClient } from "../lib/auth-client";
-
+import { signIn } from "@/lib/auth-client";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -27,15 +28,19 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const { error: authError } = await authClient.signIn.email({
+      const { error: authError } = await signIn.email({
         email,
         password,
         callbackURL: "/",
+        fetchOptions: {
+          credentials: "include",
+        },
       });
       if (authError) {
         setError(authError.message || "Invalid email or password.");
       } else {
         toast.success("Successfully signed in!");
+        router.push("/");
       }
     } catch {
       setError("Something went wrong. Please try again.");

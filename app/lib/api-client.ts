@@ -1,12 +1,16 @@
-export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "https://pet-adoption-server-eight.vercel.app";
+const backendBaseUrl =
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+
+export const API_BASE_URL = `${backendBaseUrl}`;
 
 interface ApiClientOptions extends RequestInit {
   timeoutMs?: number;
 }
 
-export async function apiClient(endpoint: string, options: ApiClientOptions = {}) {
+export async function apiClient(
+  endpoint: string,
+  options: ApiClientOptions = {},
+) {
   const timeoutMs = Number(options.timeoutMs ?? 10000);
   const url = `${API_BASE_URL}${endpoint.startsWith("/") ? endpoint : `/${endpoint}`}`;
   const headers = new Headers(options.headers || {});
@@ -17,9 +21,12 @@ export async function apiClient(endpoint: string, options: ApiClientOptions = {}
 
   headers.set("X-Requested-With", "XMLHttpRequest");
 
-  const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+  const controller =
+    typeof AbortController !== "undefined" ? new AbortController() : null;
   const timeoutId =
-    controller && typeof window !== "undefined" ? window.setTimeout(() => controller.abort(), timeoutMs) : undefined;
+    controller && typeof window !== "undefined" ?
+      window.setTimeout(() => controller.abort(), timeoutMs)
+    : undefined;
 
   try {
     const response = await fetch(url, {
