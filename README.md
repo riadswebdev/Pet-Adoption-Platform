@@ -8,10 +8,10 @@ A full-stack pet adoption application built with a Next.js client and an Express
 
 This repository is split into two main parts:
 
-- Client app: [pet-adoption-platform](.)
+- Client app: [pet-adoption-platform](https://pet-adoption-platform-drab.vercel.app)
   - Built with Next.js, React, Tailwind CSS, HeroUI, and Better Auth
   - Handles the public site, authentication, pet browsing, user dashboard, and admin dashboard
-- Server API: [pet-adoption-server](../pet-adoption-server)
+- Server API: [pet-adoption-server](https://pet-adoption-server-eight.vercel.app)
   - Built with Express and MongoDB
   - Exposes REST endpoints for pets, authentication, profile data, and admin management
 
